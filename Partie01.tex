@@ -1,0 +1,42 @@
+\section*{Mise en place de la topologie} 
+\vspace{0.3cm}
+
+\subsection{Confirmation de la configuration en utilisant ping}
+\includegraphics[width=1\textwidth]{./images/topology.png} \\
+\subsubsection{Changement du masque de sous-réseau}
+\vspace{0.3cm}
+Initialement, le masque de sous-réseau était défini à /8, ce qui signifie que les 8 premiers bits de l'adresse IP représentaient la partie réseau, et les 24 bits restants étaient réservés pour les hôtes.
+Cependant, on doit modifier ce masque de sous-réseau de /8 à /16. Cela signifie que les 16 premiers bits définissent désormais la partie réseau de l’adresse IP, tandis que les 16 bits restants sont utilisés pour les hôtes.\\
+
+\includegraphics[width=1\textwidth]{./images/IpBaseSetup.png} \\
+
+
+\subsubsection{Attribution des Adresses IP aux Hôtes}
+\begin{itemize}
+    \item h1 : 10.25.0.26
+    \item h2 : 10.25.0.27
+\end{itemize}
+
+
+\subsubsection{Ping}
+Lorsque la commande ping est lancée, h2 envoie un paquet ICMP Echo Request à l'adresse IP de h1. Ce paquet contient 64 bytes de données par défaut, ainsi qu'un numéro de séquence pour suivre les paquets envoyés (icmp\_seq).
+
+h1 reçoit ce paquet ICMP Echo Request et le traite. En réponse, il génère un paquet ICMP Echo Reply, qui contient les mêmes données que celles envoyées par h2.
+
+Ce paquet Echo Reply est renvoyé à l'appareil source (h2). Lorsque h2 reçoit la réponse, il mesure le temps que le paquet a mis pour faire l'aller-retour, appelé Round Trip Time (RTT).
+
+Le terminal affiche ainsi le TTL (Time to Live), qui mesure le nombre de routeurs ou de sauts traversés par le paquet avant d'atteindre sa destination.
+
+\begin{itemize}
+    \item \textbf{64 bytes} : La taille du paquet ICMP envoyé et reçu (64 octets par défaut).
+    \item \textbf{from 10.25.0.26} : L'adresse IP de la machine qui a répondu à la requête ICMP (ici, h1).
+    \item \textbf{icmp\_seq=i} : Le numéro de séquence du paquet envoyé, permettant de vérifier l'ordre et la réception des paquets.
+    \item \textbf{ttl=64} : Le Time to Live du paquet, qui est initialement défini par l'appareil source est décrémenté de 1 à chaque routeur traversé.
+    \item \textbf{time=0.072 ms} : Le temps que le paquet a mis pour faire l’aller-retour, en millisecondes, indiquant la latence ou délai entre les deux appareils.
+\end{itemize}
+
+\subsection{Tests}
+\subsubsection{T1.1 : Varier le débit du lien entre H1 et H2 ( mettre la même valeur sur les deux machines ).}
+\input{T1.1} 
+\subsubsection{T1.2 : Fixer la valeurdu débit sur le lien entre H1 et le Switch à 1Gb/s et varier le débit sur H2.}
+\input{T1.2}
