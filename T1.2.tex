@@ -32,18 +32,32 @@ Le protocole TCP est conçu pour éviter la surcharge du réseau et s’adapte d
 Débit de h1 (ligne bleue) : Le débit applicatif mesuré sur h1 varie entre 350 Mbit/s et environ 550 Mbit/s.
 Débit de h2 (ligne orange) : Le débit applicatif sur H2 suit une courbe similaire à celle de h1.
 \\
+\\
 \textbf{Explication} :\\
 Le fait que les deux débits (h1 et h2) suivent un schéma similaire de montée et descente suggère que la limitation du débit physique à 625 Mbit/s entre H2 et le switch influence directement les deux hôtes. Comme le débit de H2 est limité par le lien physique, le switch agit comme un point de congestion, entraînant des fluctuations du débit applicatif.
 \vspace{1cm}
 \\
+\newpage
 \textbf{3:} `tc qdisc add dev h2-eth0 root netem rate 2.5gbit`
 \begin{center}
     \includegraphics[width=1\textwidth]{./images/T1.2/2500test2.png}
     \includegraphics[width=1\textwidth]{./images/T1.2/courbe2500test2.png}
 \end{center}
+\textbf{Explication} :\\
+Le débit applicatif oscille de manière significative entre environ 100 Mbit/s et 600 Mbit/s sur la période mesurée (10 secondes).
+\\
 
-\newpage
-\textbf{Courbe T1.2:} 
+Les courbes de h1 et h2 sont très proches, ce qui indique une synchronisation des débits mesurés sur les deux hôtes.`\\
+Le fait de fixer le débit de l'interface h2 à 2.5 Gbit/s alors que le lien entre h1 et le switch est limité à 1 Gbit/s signifie que le débit maximum théorique du transfert sera contraint par cette limite de 1 Gbit/s.
+\\
+\\Toutefois, les fluctuations observées montrent que le débit applicatif est souvent bien en-dessous de ce maximum théorique, probablement en raison des phénomènes de contention et de gestion des files d'attente (dqisc).
+\vspace{0.5cm}
+\\
+Si le lien entre h1 et le switch est limité à 1 Gbit/s, alors que le lien entre h2 et le switch peut aller jusqu'à 2.5 Gbit/s, il y a un déséquilibre.
+Lorsqu'h2 essaie d'envoyer des données à un débit supérieur à 1 Gbit/s, le switch doit gérer cette surcharge, créant ainsi une contention pour la bande passante disponible.
+\\
+En présence de forte contention, des collisions peuvent se produire (particulièrement sur les réseaux partagés comme Ethernet en mode half-duplex).
+Les paquets peuvent être perdus et doivent être retransmis, ce qui réduit l'efficacité du débit applicatif.
 
 
 
