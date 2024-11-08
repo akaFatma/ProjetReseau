@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.10.31)  4 NOV 2024 11:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.10.31)  8 NOV 2024 11:14
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -272,77 +272,100 @@ File: ./images/ValuerDefautResultat.png Graphic file (type png)
 Package pdftex.def Info: ./images/ValuerDefautResultat.png  used on input line 40.
 (pdftex.def)             Requested size: 452.9679pt x 154.09267pt.
  [5 <./images/ValuerMoyenneCommande.png> <./images/ValeurMoyenneResultat.png> <./images/ValuerDefautCommande.png> <./images/ValuerDefautResultat.png>]
-<./images/GrapheTest1.png, id=40, 325.215pt x 268.50313pt>
-File: ./images/GrapheTest1.png Graphic file (type png)
-<use ./images/GrapheTest1.png>
-Package pdftex.def Info: ./images/GrapheTest1.png  used on input line 44.
-(pdftex.def)             Requested size: 452.9679pt x 374.00487pt.
-)
+
+LaTeX Warning: File `./images/GrapheTest1.png' not found on input line 44.
+
+
+T1.1.tex:44: Package pdftex.def Error: File `./images/GrapheTest1.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.44 ...dth=1\textwidth]{./images/GrapheTest1.png}
+                                                   \\
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+LaTeX Font Info:    Trying to load font information for OT1+lmtt on input line 44.
+(D:\Latex\tex/latex/lm\ot1lmtt.fd
+File: ot1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+))
 Underfull \hbox (badness 10000) in paragraph at lines 46--41
 
  []
 
 (T1.2.tex
-<./images/T1.2TopologyAndPing.png, id=41, 496.85625pt x 340.77313pt>
+<./images/T1.2TopologyAndPing.png, id=40, 496.85625pt x 340.77313pt>
 File: ./images/T1.2TopologyAndPing.png Graphic file (type png)
 <use ./images/T1.2TopologyAndPing.png>
 Package pdftex.def Info: ./images/T1.2TopologyAndPing.png  used on input line 3.
 (pdftex.def)             Requested size: 452.9679pt x 310.676pt.
- [6 <./images/GrapheTest1.png>]
-<./images/11.png, id=46, 956.07187pt x 405.515pt>
-File: ./images/11.png Graphic file (type png)
-<use ./images/11.png>
-Package pdftex.def Info: ./images/11.png  used on input line 8.
-(pdftex.def)             Requested size: 452.9679pt x 192.1204pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 10--14
-
- []
-
-<./images/13.png, id=47, 953.06062pt x 443.6575pt>
-File: ./images/13.png Graphic file (type png)
-<use ./images/13.png>
-Package pdftex.def Info: ./images/13.png  used on input line 15.
-(pdftex.def)             Requested size: 452.9679pt x 210.86134pt.
-[7 <./images/T1.2TopologyAndPing.png> <./images/11.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 17--21
+ [6{D:/Latex/fonts/enc/dvips/lm/lm-rmtt.enc}]
+<./images/T1.2/125test2.png, id=45, 536.50438pt x 350.81062pt>
+File: ./images/T1.2/125test2.png Graphic file (type png)
+<use ./images/T1.2/125test2.png>
+Package pdftex.def Info: ./images/T1.2/125test2.png  used on input line 7.
+(pdftex.def)             Requested size: 452.9679pt x 296.18843pt.
+<./images/T1.2/courbe125test2.png, id=46, 321.2pt x 277.035pt>
+File: ./images/T1.2/courbe125test2.png Graphic file (type png)
+<use ./images/T1.2/courbe125test2.png>
+Package pdftex.def Info: ./images/T1.2/courbe125test2.png  used on input line 8.
+(pdftex.def)             Requested size: 452.9679pt x 390.69548pt.
+ [7 <./images/T1.2TopologyAndPing.png> <./images/T1.2/125test2.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 14--27
 
  []
 
-<./images/15.png, id=54, 951.555pt x 440.14438pt>
-File: ./images/15.png Graphic file (type png)
-<use ./images/15.png>
-Package pdftex.def Info: ./images/15.png  used on input line 22.
-(pdftex.def)             Requested size: 452.9679pt x 209.52072pt.
-[8 <./images/13.png> <./images/15.png>]
-<./images/CourbeT1.2.png, id=60, 952.05687pt x 441.14813pt>
-File: ./images/CourbeT1.2.png Graphic file (type png)
-<use ./images/CourbeT1.2.png>
-Package pdftex.def Info: ./images/CourbeT1.2.png  used on input line 28.
-(pdftex.def)             Requested size: 452.9679pt x 209.89084pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 30--33
+Underfull \hbox (badness 10000) in paragraph at lines 14--27
 
  []
 
-)) [9 <./images/CourbeT1.2.png>] (Rapport.aux)
+[8 <./images/T1.2/courbe125test2.png>]
+<./images/T1.2/625test2.png, id=57, 538.01pt x 364.86313pt>
+File: ./images/T1.2/625test2.png Graphic file (type png)
+<use ./images/T1.2/625test2.png>
+Package pdftex.def Info: ./images/T1.2/625test2.png  used on input line 28.
+(pdftex.def)             Requested size: 452.9679pt x 307.18999pt.
+<./images/T1.2/courbe625test2.png, id=58, 319.69438pt x 274.52562pt>
+File: ./images/T1.2/courbe625test2.png Graphic file (type png)
+<use ./images/T1.2/courbe625test2.png>
+Package pdftex.def Info: ./images/T1.2/courbe625test2.png  used on input line 29.
+(pdftex.def)             Requested size: 452.9679pt x 388.97456pt.
+ [9 <./images/T1.2/625test2.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 31--35
+
+ []
+
+<./images/T1.2/2500test2.png, id=63, 538.01pt x 367.87437pt>
+File: ./images/T1.2/2500test2.png Graphic file (type png)
+<use ./images/T1.2/2500test2.png>
+Package pdftex.def Info: ./images/T1.2/2500test2.png  used on input line 36.
+(pdftex.def)             Requested size: 452.9679pt x 309.72523pt.
+<./images/T1.2/courbe2500test2.png, id=64, 322.70563pt x 274.52562pt>
+File: ./images/T1.2/courbe2500test2.png Graphic file (type png)
+<use ./images/T1.2/courbe2500test2.png>
+Package pdftex.def Info: ./images/T1.2/courbe2500test2.png  used on input line 37.
+(pdftex.def)             Requested size: 452.9679pt x 385.35953pt.
+[10 <./images/T1.2/courbe625test2.png>] [11 <./images/T1.2/2500test2.png> <./images/T1.2/courbe2500test2.png>])) [12] (Rapport.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 2089 strings out of 474486
- 35512 string characters out of 5760614
+ 2171 strings out of 474486
+ 37860 string characters out of 5760614
  1932542 words of memory out of 5000000
- 24379 multiletter control sequences out of 15000+600000
- 582348 words of font info for 46 fonts, out of 8000000 for 9000
+ 24456 multiletter control sequences out of 15000+600000
+ 582658 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,6n,65p,428b,217s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<D:/Latex/fonts/type1/public/lm/lmbx12.pfb><D:/Latex/fonts/type1/public/lm/lmr12.pfb>
-Output written on Rapport.pdf (9 pages, 1060078 bytes).
+ 57i,6n,65p,507b,302s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<D:/Latex/fonts/type1/public/lm/lmbx12.pfb><D:/Latex/fonts/type1/public/lm/lmr12.pfb><D:/Latex/fonts/type1/public/lm/lmtt12.pfb>
+Output written on Rapport.pdf (12 pages, 988080 bytes).
 PDF statistics:
- 79 PDF objects out of 1000 (max. 8388607)
+ 96 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 81 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 86 words of extra memory for PDF output out of 10000 (max. 10000000)
 
