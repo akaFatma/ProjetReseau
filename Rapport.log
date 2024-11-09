@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.11.4)  9 NOV 2024 08:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.11.4)  9 NOV 2024 09:28
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -347,20 +347,20 @@ Underfull \hbox (badness 10000) in paragraph at lines 50--61
 <./images/T1vsT2pour125.png, id=76, 324.21124pt x 274.52562pt>
 File: ./images/T1vsT2pour125.png Graphic file (type png)
 <use ./images/T1vsT2pour125.png>
-Package pdftex.def Info: ./images/T1vsT2pour125.png  used on input line 73.
+Package pdftex.def Info: ./images/T1vsT2pour125.png  used on input line 70.
 (pdftex.def)             Requested size: 452.9679pt x 383.57504pt.
- [13 <./images/T1vsT2pour125.png>]
-<./images/T1vsT2pour625.png, id=82, 319.69438pt x 272.51813pt>
+<./images/T1vsT2pour625.png, id=77, 319.69438pt x 272.51813pt>
 File: ./images/T1vsT2pour625.png Graphic file (type png)
 <use ./images/T1vsT2pour625.png>
-Package pdftex.def Info: ./images/T1vsT2pour625.png  used on input line 83.
+Package pdftex.def Info: ./images/T1vsT2pour625.png  used on input line 80.
 (pdftex.def)             Requested size: 452.9679pt x 386.13014pt.
+ [13 <./images/T1vsT2pour125.png>]
 <./images/T1vsT2pour2500.png, id=83, 325.215pt x 271.51437pt>
 File: ./images/T1vsT2pour2500.png Graphic file (type png)
 <use ./images/T1vsT2pour2500.png>
-Package pdftex.def Info: ./images/T1vsT2pour2500.png  used on input line 92.
+Package pdftex.def Info: ./images/T1vsT2pour2500.png  used on input line 89.
 (pdftex.def)             Requested size: 452.9679pt x 378.1993pt.
- [14 <./images/T1vsT2pour625.png>] [15 <./images/T1vsT2pour2500.png>])) [16] (Rapport.aux)
+ [14 <./images/T1vsT2pour625.png>])) [15 <./images/T1vsT2pour2500.png>] [16] (Rapport.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-01-04>
@@ -375,7 +375,7 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  57i,6n,65p,543b,217s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/mw_dj/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/mw_dj/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb>
-Output written on Rapport.pdf (16 pages, 1075639 bytes).
+Output written on Rapport.pdf (16 pages, 1075151 bytes).
 PDF statistics:
  109 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
