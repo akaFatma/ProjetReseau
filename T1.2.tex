@@ -61,4 +61,45 @@ Les paquets peuvent être perdus et doivent être retransmis, ce qui réduit l'e
 
 
 
+\newpage
+\section{Comparaison des Tests T1.1 et T1.2}
+
+\subsection{Contexte et Topologie du Réseau}
+\textbf{Test T1.1 :} Ce test consiste en une connexion directe entre les deux stations H1 et H2 via un lien direct. Cette configuration minimise les latences et évite les surcharges liées aux équipements intermédiaires.\\
+\textbf{Test T1.2 :} Dans ce test, les stations H1 et H2 sont connectées via un switch, ce qui ajoute une couche supplémentaire dans la transmission des données, introduisant potentiellement de la latence et des fluctuations de débit dues au traitement par le switch.
+
+\subsection{Résultats pour un Débit Physique de 125 Mbit/s}
+\begin{center}
+    \includegraphics[width=1\textwidth]{./images/T1vsT2pour125.png}
+\end{center}
+\textbf{Analyse :}\\
+\textbf{Débit Initial :} T1.2 affiche un débit initial plus élevé (environ 145 Mbit/s) par rapport à T1.1, qui démarre autour de 135 Mbit/s.\\
+\textbf{Pic de Débit :} Les deux configurations atteignent un pic de débit d'environ 145 Mbit/s entre 2 et 3 secondes, mais T1.1 atteint son pic légèrement avant T1.2.\\
+\textbf{Stabilité et Fluctuations :} T1.1 montre des fluctuations significatives après le pic, tandis que T1.2 reste plus stable au départ avant de fluctuer également.\\
+\textbf{Conclusion (125 Mbit/s) :} T1.2 est initialement plus stable, mais les deux configurations montrent une instabilité après quelques secondes.
+
+\subsection{Résultats pour un Débit Physique de 625 Mbit/s}
+\begin{center}
+    \includegraphics[width=1\textwidth]{./images/T1vsT2pour625.png}
+\end{center}
+\textbf{Analyse :}\\
+\textbf{Comportement Initial :} T1.1 atteint rapidement environ 600 Mbit/s et reste stable, tandis que T1.2 montre des fluctuations initiales, atteignant environ 550 Mbit/s.\\
+\textbf{Stabilité et Consistance :} T1.1 est stable et proche de la limite physique, tandis que T1.2 est instable, avec des variations importantes.\\
+\textbf{Conclusion (625 Mbit/s) :} Le lien direct (T1.1) offre une performance supérieure, avec un débit plus stable.
+
+\subsection{Interprétation des Résultats pour un Débit Physique de 2,5 Gbit/s}
+\begin{center}
+    \includegraphics[width=1\textwidth]{./images/T1vsT2pour2500.png}
+\end{center}
+\textbf{Analyse :}\\
+\textbf{Performance du Lien Direct (T1.1) :} Le débit est proche de 2,4 Gbit/s, montrant une communication très efficace.\\
+\textbf{Performance avec le Switch (T1.2) :} Le débit fluctue autour de 2 Gbit/s, indiquant des délais de traitement et une surcharge du switch.\\
+\textbf{Conclusion (2,5 Gbit/s) :} Le lien direct est plus performant à des débits élevés, tandis que l'ajout d'un switch entraîne une dégradation notable du débit.
+
+\subsection{Interprétation Finale et Conclusion}
+\textbf{Impact de la Topologie du Réseau :}\\
+\textbf{Lien Direct (T1.1) :} Offre une meilleure performance, minimisant les latences et maximisant l'utilisation du débit physique.\\
+\textbf{Switch (T1.2) :} Introduit une surcharge, réduisant la performance, surtout à des débits élevés.\\
+\textbf{Conclusion Générale :}\\
+Pour des applications nécessitant un débit élevé et constant, une connexion directe est préférable. L'utilisation d'un switch est recommandée pour des scénarios nécessitant flexibilité et expansion du réseau, bien qu'elle puisse entraîner des baisses de performance. En résumé, le choix de la topologie doit être basé sur les exigences de l'application, en équilibrant performance et flexibilité.
 
