@@ -1,0 +1,42 @@
+\section{Introduction}
+ Le débit applicatif, c’est-à-dire la vitesse de transmission ressentie par l’utilisateur, est un indicateur clé de la performance des réseaux. Ce projet explore comment différents paramètres réseau, en particulier le débit physique, influencent le débit applicatif pour mieux comprendre les effets de ces variations sur les performances globales du réseau.
+
+\section{Objectifs et Problématique}
+
+\subsection{Objectifs}
+L’objectif principal de ce projet est de comprendre l’influence de la variation du débit physique sur les performances perçues du réseau, spécifiquement à travers le débit applicatif. Deux configurations de test sont examinées :
+\begin{itemize}
+    \item Un lien direct entre deux hôtes.
+    \item Un lien indirect entre deux hôtes via un switch.
+\end{itemize}
+
+\subsection{Problématique}
+Les réseaux sont souvent limités par des équipements intermédiaires, et chaque composant du réseau a un débit maximal. Comment ces limitations influencent-elles les performances du réseau ? Ce projet vise à répondre à cette question en examinant comment des débits physiques différents impactent le débit applicatif pour chaque configuration.
+
+\section{Méthodologie et Outils Utilisés}
+Pour ce projet, plusieurs outils ont été employés pour simuler et mesurer les performances réseau.
+
+\subsection{Outil de Création de Topologies : Miniedit}
+Miniedit est un outil de simulation qui permet de créer des topologies réseau diverses. Il a été utilisé ici pour configurer les deux topologies de test, relier les hôtes, et ajuster les débits physiques de manière flexible.
+
+\subsection{Outil de Plotting : Matplotlib}
+Dans le cadre de l'analyse des résultats, nous avons utilisé la bibliothèque Python Matplotlib pour générer des graphiques représentant l'évolution des débits applicatifs.
+
+\subsection{Outils de Contrôle et de Mesure du Débit}
+\begin{itemize}
+    \item \texttt{ping} : Cet outil de diagnostic réseau permet de mesurer la latence entre deux hôtes. Dans notre cas, ping a été utilisé pour tester la réactivité et la stabilité du réseau entre h1 et h2, en mesurant le temps de réponse des paquets ICMP envoyés, ce qui a permis d'évaluer l'impact des variations de débit physique sur la latence.
+    
+    \item \texttt{tc qdisc add dev h1-eth0 root netem rate 2.5gbit} : Cette commande du module \texttt{tc} (Traffic Control) permet de fixer un débit spécifique sur l’interface réseau d’un hôte. Dans ce projet, elle est utilisée pour ajuster et limiter le débit physique des liens, facilitant ainsi l’étude des effets de différentes valeurs de débit physique sur les performances du réseau.
+
+    \item \texttt{iperf3} : Cet outil de test de débit réseau mesure le débit applicatif entre deux hôtes. Dans notre cas, \texttt{iperf3} a servi à observer la variation du débit applicatif entre h1 et h2 pour chaque valeur de débit physique configurée, ce qui a permis de tracer des graphiques montrant la relation entre le débit physique et le débit applicatif.
+
+\end{itemize}
+
+\section{Description des Tests et Topologies}
+
+\subsection{Topologie de T1.1 : Lien Direct entre h1 et h2}
+Dans cette première topologie, h1 et h2 sont connectés directement, sans équipement intermédiaire. Cela permet d’évaluer la performance en l’absence de toute limitation imposée par un switch ou un autre appareil réseau.
+
+\subsection{Topologie de T1.2 : Connexion via un Switch entre h1 et h2}
+Dans cette configuration, un switch relie les deux hôtes. Le lien entre h1 et le switch est limité à un débit fixe de 1 Gbit/s, tandis que le débit entre le switch et h2 est variable, permettant d’observer comment les limitations intermédiaires influencent les performances du réseau.
+

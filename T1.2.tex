@@ -1,13 +1,37 @@
+
 \vspace{0.5cm}
-\begin{center}
+\subsubsection{Objectif du Test}
+Ce test explore l'impact des variations de débit physique lorsqu'un switch est ajouté entre les deux hôtes. Le lien entre h1 et le switch est limité à 1 Gbit/s pour simuler une contrainte intermédiaire.
+
+\subsubsection{Valeurs Testées}
+Pour le lien entre le switch et h2, trois valeurs de débit physique sont appliquées :
+\begin{itemize}
+    \item 5 \% de la valeur par défaut de 2.5 Gbit/s (soit 125 Mbit/s).
+    \item 25 \% de la valeur par défaut de 2.5 Gbit/s (soit 625 Mbit/s).
+    \item La valeur par défaut de 2.5 Gbit/s.
+\end{itemize}
+\begin{figure}[h]
+    \centering
     \includegraphics[width=1\textwidth]{./images/T1.2TopologyAndPing.png}
-\end{center}
-\textbf{1:} `tc qdisc add dev h2-eth0 root netem rate 125mbit`
-\begin{center}
-    \includegraphics[width=1\textwidth]{./images/T1.2/125test2.png}
-    \includegraphics[width=1\textwidth]{./images/T1.2/courbe125test2.png}
-    
-\end{center}
+    \caption{Commande ping pour la topologie 2}
+    \label{fig:exemple}
+\end{figure}
+
+\newpage
+\textbf{1:`Debit physique 125Mbit/s`} 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{./images/T1.2/125test2.png}
+    \caption{Test2 pour debit physique = 125Mbit/s}
+    \label{fig:exemple}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{./images/T1.2/courbe125test2.png}
+    \caption{Graphe du test2 pour debit physique = 125Mbit/s}
+    \label{fig:exemple}
+\end{figure}
+
 \textbf{Observation :}\\
 Débit de H1 (ligne bleue) : Le débit applicatif mesuré sur h1 reste relativement stable, oscillant entre 115 Mbit/s et 125 Mbit/s tout au long du test. Même si le lien physique entre H1 et le switch est de 1 Gbit/s, le débit observé n’atteint jamais cette valeur maximale théorique.
 
@@ -23,11 +47,20 @@ L'outil iperf3 utilise généralement le protocole TCP, qui ajuste automatiqueme
 Ici, TCP détecte que le débit sur le lien entre H2 et le switch est limité à 125 Mbit/s et ajuste donc la transmission des données pour s’adapter à cette contrainte, expliquant pourquoi le débit de h1 reste autour de 115 à 125 Mbit/s.
 Le protocole TCP est conçu pour éviter la surcharge du réseau et s’adapte dynamiquement aux conditions de congestion, ce qui pourrait aussi expliquer pourquoi le débit de H2 est plus instable, car le lien est proche de sa capacité maximale.\\
 \\
-\textbf{2:} `tc qdisc add dev h2-eth0 root netem rate 625mbit `
-\begin{center}
-    \includegraphics[width=1\textwidth]{./images/T1.2/625test2.png}
-    \includegraphics[width=1\textwidth]{./images/T1.2/courbe625test2.png}
-\end{center}
+\textbf{2:`Debit physique 625Mbit/s`} 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{./images/T1.2/625test2.png}
+    \caption{Test2 pour debit physique = 625Mbit/s}
+    \label{fig:exemple}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./images/T1.2/courbe625test2.png}
+    \caption{Graphe du test2 pour debit physique = 625Mbit/s}
+    \label{fig:exemple}
+\end{figure}
+
 \textbf{Observation :}\\
 Débit de h1 (ligne bleue) : Le débit applicatif mesuré sur h1 varie entre 350 Mbit/s et environ 550 Mbit/s.
 Débit de h2 (ligne orange) : Le débit applicatif sur H2 suit une courbe similaire à celle de h1.
@@ -38,11 +71,20 @@ Le fait que les deux débits (h1 et h2) suivent un schéma similaire de montée 
 \vspace{1cm}
 \\
 \newpage
-\textbf{3:} `tc qdisc add dev h2-eth0 root netem rate 2.5gbit`
-\begin{center}
-    \includegraphics[width=1\textwidth]{./images/T1.2/2500test2.png}
-    \includegraphics[width=1\textwidth]{./images/T1.2/courbe2500test2.png}
-\end{center}
+\textbf{3:`Debit physique 2.5Gbit/s`} 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./images/T1.2/2500test2.png}
+    \caption{Test2 pour debit physique = 2.5Gbit/s}
+    \label{fig:exemple}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./images/T1.2/courbe2500test2.png}
+    \caption{Graphe du test2 pour debit physique = 2.5Gbit/s}
+    \label{fig:exemple}
+\end{figure}
+
 \textbf{Explication} :\\
 Le débit applicatif oscille de manière significative entre environ 100 Mbit/s et 600 Mbit/s sur la période mesurée (10 secondes).
 \\
@@ -57,45 +99,16 @@ Si le lien entre h1 et le switch est limité à 1 Gbit/s, alors que le lien entr
 Lorsqu'h2 essaie d'envoyer des données à un débit supérieur à 1 Gbit/s, le switch doit gérer cette surcharge, créant ainsi une contention pour la bande passante disponible.
 \\
 En présence de forte contention, des collisions peuvent se produire (particulièrement sur les réseaux partagés comme Ethernet en mode half-duplex).
-Les paquets peuvent être perdus et doivent être retransmis, ce qui réduit l'efficacité du débit applicatif.
-
-
-
+Les paquets peuvent être perdus et doivent être retransmis, ce qui réduit l'efficacité du débit applicatif.\\
+\\
+\textbf{4:`Explication du Graphique Débit Applicatif vs Débit Physique`}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{./images/T1.2/T2appVSphy.png}
+    \caption{Graphe du test2 pour Débit Applicatif vs Débit Physique}
+    \label{fig:exemple}
+\end{figure}
 \newpage
-\section{Comparaison des Tests T1.1 et T1.2}
-
-
-\subsection{Résultats pour un Débit Physique de 125 Mbit/s}
-\begin{center}
-    \includegraphics[width=1\textwidth]{./images/T1vsT2pour125.png}
-\end{center}
-\textbf{Analyse :}\\
-\textbf{Débit Initial :} T1.2 affiche un débit initial plus élevé (environ 145 Mbit/s) par rapport à T1.1, qui démarre autour de 125 Mbit/s.\\
-\textbf{Pic de Débit :} Les deux configurations atteignent un pic de débit d'environ 145 Mbit/s entre 2 et 3 secondes, mais T1.1 atteint son pic légèrement avant T1.2.\\
-\textbf{Stabilité et Fluctuations :} T1.2 montre des fluctuations significatives après le pic, tandis que T1.1 reste plus stable au départ avant de fluctuer également.\\
-\textbf{Conclusion (125 Mbit/s) :} T1.2 est initialement plus stable, mais les deux configurations montrent une instabilité après quelques secondes.
-
-\subsection{Résultats pour un Débit Physique de 625 Mbit/s}
-\begin{center}
-    \includegraphics[width=1\textwidth]{./images/T1vsT2pour625.png}
-\end{center}
-\textbf{Analyse :}\\
-\textbf{Comportement Initial :} T1.1 atteint rapidement environ 600 Mbit/s et reste stable, tandis que T1.2 montre des fluctuations initiales, atteignant environ 550 Mbit/s.\\
-\textbf{Stabilité et Consistance :} T1.1 est stable et proche de la limite physique, tandis que T1.2 est instable, avec des variations importantes.\\
-\textbf{Conclusion (625 Mbit/s) :} Le lien direct (T1.1) offre une performance supérieure, avec un débit plus stable.
-
-\subsection{Interprétation des Résultats pour un Débit Physique de 2,5 Gbit/s}
-\begin{center}
-    \includegraphics[width=1\textwidth]{./images/T1vsT2pour2500.png}
-\end{center}
-\textbf{Analyse :}\\
-\textbf{Performance du Lien Direct (T1.1) :} Le débit est proche de 2,4 Gbit/s, montrant une communication très efficace.\\
-\textbf{Performance avec le Switch (T1.2) :} Le débit fluctue autour de 600 mbit/s, indiquant des délais de traitement et une surcharge du switch.\\
-\textbf{Conclusion (2,5 Gbit/s) :} Le lien direct est plus performant à des débits élevés, tandis que l'ajout d'un switch entraîne une dégradation notable du débit.
-
-\subsection{Interprétation Finale et Conclusion}
-\textbf{Impact de la Topologie du Réseau :}\\
-\textbf{Lien Direct (T1.1) :} Offre une meilleure performance, minimisant les latences et maximisant l'utilisation du débit physique.\\
-\textbf{Switch (T1.2) :} Introduit une surcharge, réduisant la performance, surtout à des débits élevés.\\
-\textbf{Conclusion Générale :}\\
-Pour des applications nécessitant un débit élevé et constant, une connexion directe est préférable. L'utilisation d'un switch est recommandée pour des scénarios nécessitant flexibilité et expansion du réseau, bien qu'elle puisse entraîner des baisses de performance. En résumé, le choix de la topologie doit être basé sur les exigences de l'application, en équilibrant performance et flexibilité.
+\textbf{Explication} :\\
+Le graphique montre une relation linéaire entre le débit physique et le débit applicatif pour les valeurs de 125 Mbps, 625 Mbps et 2,5 Gbps.  L’allure du graphe suggère une certaine saturation des performances applicatives à mesure que le débit physique augmente au-delà de la capacité de transfert maximale permise par le lien entre le switch et H1.
+La cause de ce phénomène est la limitation imposée par le débit du lien entre le switch et H1, qui reste fixe à 1 Gbit/s tout au long du test. Même lorsque le débit physique au-delà de ce lien (entre H2 et le switch) est augmenté, le débit applicatif ne peut dépasser cette limite. Cela signifie que le débit applicatif est contraint par le débit maximal autorisé sur le lien entre le switch et H1. En d’autres termes, une fois un certain seuil atteint, augmenter davantage le débit physique ne se traduit pas par une amélioration du débit applicatif, car le goulot d'étranglement est situé au niveau du lien entre le switch et H1.
